@@ -10,6 +10,22 @@ fba_libretro.core=fbalpha2012
 fba_libretro.emulator=libretro
 fba_libretro.tdp=100.000000" >> /userdata/system/batocera.conf
 
+# Criando Estrutura da configuração do retroarch caso não haja
+# Caminho da pasta
+diretorio="/userdata/system/configs/retroarch"
+
+# Verifica se o diretório existe
+if [ -d "$diretorio" ]; then
+  # Diretório existe, nada a fazer
+  exit 0
+else
+  # Diretório não existe, exibe mensagem
+    wget https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/RETROCONFIG > /dev/null 2>&1
+    unsquashfs -d "/userdata/system/configs/retroarch" RETROCONFIG > /dev/null 2>&1
+    rm RETROCONFIG
+fi
+
+# Estilização das saídas no terminal 
 clear
 echo ""
 echo ""
