@@ -23,21 +23,29 @@ unsquashfs -d fba_libretro FBAH || { echo "Erro ao extrair pacotes"; exit 1; }
 sleep 3
 
 echo -e "${ROXO}FINALIZANDO INSTALAÇÃO...${RESET}"
-# Verificando se o arquivo de configuração existe antes de movê-lo
-if [ -f "/userdata/roms/fbalpha/dep/es_systems_fba_libretro.cfg" ]; then
-    mv "/userdata/roms/fbalpha/dep/es_systems_fba_libretro.cfg" /userdata/system/configs/emulationstation || { echo "Erro ao mover o arquivo de configuração"; exit 1; }
-    chattr +i "/userdata/system/configs/emulationstation/es_systems_fba_libretro.cfg" || { echo "Erro ao bloquear arquivo de configuração"; exit 1; }
-else
-    echo "Arquivo es_systems_fba_libretro.cfg não encontrado!"
-    exit 1
-fi
 
-# Verificando e movendo o arquivo do core
-if [ -f "/userdata/roms/fbalpha/dep/fbalpha2012_libretro.so" ]; then
-    mv /userdata/roms/fbalpha/dep/fbalpha2012_libretro.so /userdata/system/configs/retroarch/cores || { echo "Erro ao mover o core"; exit 1; }
-    ln -sf /userdata/system/configs/retroarch/cores/fbalpha2012_libretro.so /usr/lib/libretro/fbalpha2012_libretro.so || { echo "Erro ao criar link simbólico para o core"; exit 1; }
+# Verificando se o diretório 'dep' existe
+if [ -d "/userdata/roms/fba_libretro/dep" ]; then
+    echo -e "${ROXO}COPIANDO ARQUIVOS DE /userdata/roms/fba_libretro/dep...${RESET}"
+
+    # Copiando arquivos para os destinos corretos
+    if [ -f "/userdata/roms/fba_libretro/dep/es_systems_fba_libretro.cfg" ]; then
+        mv /userdata/roms/fba_libretro/dep/es_systems_fba_libretro.cfg /userdata/system/configs/emulationstation || { echo "Erro ao mover o arquivo de configuração"; exit 1; }
+        chattr +i "/userdata/system/configs/emulationstation/es_systems_fba_libretro.cfg" || { echo "Erro ao bloquear arquivo de configuração"; exit 1; }
+    else
+        echo "Arquivo es_systems_fba_libretro.cfg não encontrado!"
+        exit 1
+    fi
+
+    if [ -f "/userdata/roms/fba_libretro/dep/fbalpha2012_libretro.so" ]; then
+        mv /userdata/roms/fba_libretro/dep/fbalpha2012_libretro.so /userdata/system/configs/retroarch/cores || { echo "Erro ao mover o core"; exit 1; }
+        ln -sf /userdata/system/configs/retroarch/cores/fbalpha2012_libretro.so /usr/lib/libretro/fbalpha2012_libretro.so || { echo "Erro ao criar link simbólico para o core"; exit 1; }
+    else
+        echo "Core fbalpha2012_libretro.so não encontrado!"
+        exit 1
+    fi
 else
-    echo "Core fbalpha2012_libretro.so não encontrado!"
+    echo "Diretório /userdata/roms/fba_libretro/dep não encontrado!"
     exit 1
 fi
 
