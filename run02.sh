@@ -1,7 +1,11 @@
 #!/bin/bash
 # Curitiba 06 de Maio de 2025
 # Editor: Jeverson Dias da Silva
-
+clear
+echo ""
+echo ""
+echo ""
+echo ""
 ROXO="\033[1;35m"
 VERDE="\033[1;92m"
 AZUL="\033[1;34m"
