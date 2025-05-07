@@ -28,6 +28,7 @@ sleep 2
 
 wget https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/FBNEO > /dev/null 2>&1
 unsquashfs -d /userdata/system/configs/retroarch/cores FBNEO > /dev/null 2>&1
+rm FBNEO
 rm /usr/lib/libretro/fbneo_libretro.so
 ln -s /userdata/system/configs/retroarch/cores/fbneo_libretro.so /usr/lib/libretro/fbneo_libretro.so
 
