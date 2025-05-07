@@ -4,11 +4,11 @@
 
 
 # Ajuste do batocera.conf
-echo "# ------------ User-generated Configurations ----------- #
-system.cpu.governor=schedutil
-fba_libretro.core=fbalpha2012
+echo "fba_libretro.core=fbalpha2012
 fba_libretro.emulator=libretro
 fba_libretro.tdp=100.000000" >> /userdata/system/batocera.conf
+
+
 
 # Criando Estrutura da configuração do retroarch caso não haja
 # Caminho da pasta
