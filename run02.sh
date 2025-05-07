@@ -26,7 +26,7 @@ sleep 2
 
 # Verificando e criando diretório fbalpha, se necessário
 cd /userdata/roms || { echo -e "${VERDE}Erro ao acessar o diretório /userdata/roms${RESET}"; exit 1; }
-mkdir -p fbalpha || { echo -e "${VERDE}Erro ao criar o diretório fbalpha${RESET}"; exit 1; }
+mkdir -p /userdata/system/configs/retroarch/cores|| { echo -e "${VERDE}Erro ao criar o diretório ..retroarch/cores${RESET}"; exit 1; }
 
 echo -e "${AMARELO}Baixando pacotes...${RESET}"
 wget https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/FBAH -O FBAH > /dev/null 2>&1 || { echo -e "${VERDE}Erro ao baixar pacotes. Tente novamente mais tarde.${RESET}"; exit 1; }
