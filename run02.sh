@@ -46,6 +46,7 @@ if [ -d "/userdata/roms/fba_libretro/dep" ]; then
     # Movendo os arquivos para os destinos corretos
     if [ -f "/userdata/roms/fba_libretro/dep/es_systems_fba_libretro.cfg" ]; then
         mv /userdata/roms/fba_libretro/dep/es_systems_fba_libretro.cfg /userdata/system/configs/emulationstation > /dev/null 2>&1 || { echo -e "${VERDE}Erro ao mover o arquivo de configuração${RESET}"; exit 1; }
+        sed -i '/<core>fbneo<\/core>/d' /userdata/system/configs/emulationstation/es_systems_fba_libretro.cfg
         chattr +i "/userdata/system/configs/emulationstation/es_systems_fba_libretro.cfg" > /dev/null 2>&1 || { echo -e "${VERDE}Erro ao proteger o arquivo de configuração${RESET}"; exit 1; }
         echo -e "${AZUL}✔️  Arquivo de configuração 'es_systems_fba_libretro.cfg' movido com sucesso!${RESET}"
     else
