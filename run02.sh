@@ -1,6 +1,15 @@
 #!/bin/bash
 # Curitiba 06 de Maio de 2025
 # Editor: Jeverson Dias da Silva
+
+
+# Ajuste do batocera.conf
+echo "# ------------ User-generated Configurations ----------- #
+system.cpu.governor=schedutil
+fba_libretro.core=fbalpha2012
+fba_libretro.emulator=libretro
+fba_libretro.tdp=100.000000" >> /userdata/system/batocera.conf
+
 clear
 echo ""
 echo ""
