@@ -33,7 +33,9 @@ mv /userdata/system/configs/retroarch/cores/fbneo_old_libretro.info /usr/share/l
 if [ -f /userdata/system/configs/emulationstation/es_systems.cfg ]; then
     sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /userdata/system/configs/emulationstation/es_systems.cfg
 fi
-sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /usr/share/emulationstation/es_systems.cfg
+if [ -f /userdata/system/.dev/dependencias.zip ]; then
+    sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /userdata/system/.dev/dependencias.zip
+fi
 sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /usr/share/emulationstation/es_systems.cfg
 
 
