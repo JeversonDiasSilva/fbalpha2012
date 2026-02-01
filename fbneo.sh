@@ -36,7 +36,10 @@ fi
 if [ -f /userdata/system/.dev/dependencias.zip ]; then
     sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /userdata/system/.dev/dependencias.zip
 fi
-sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /usr/share/emulationstation/es_systems.cfg
+if [ -f /usr/share/emulationstation/es_systems.cfg ]; then
+    sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /usr/share/emulationstation/es_systems.cfg
+fi
+
 
 
 rm FBNEO
