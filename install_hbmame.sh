@@ -1,7 +1,14 @@
 #!/bin/bash
 
 BLUE_BOLD="\e[1;34m"
+GREEN_BOLD="\e[1;32m"
 RESET="\e[0m"
+
+# Mensagem inicial
+echo -e "${GREEN_BOLD}INSTALANDO SISTEMA HBMAME${RESET}"
+echo -e "${BLUE_BOLD}HBMAME por AlexxandreFS${RESET}"
+echo -e "${BLUE_BOLD}Batocera.PLUS${RESET}"
+echo -e "${BLUE_BOLD}https://github.com/AlexxandreFS/Batocera.PLUS${RESET}"
 
 # Criar diretórios
 mkdir -p /userdata/system/configs/retroarch/cores        > /dev/null 2>&1
@@ -52,6 +59,5 @@ fi
 # Salvar overlay
 batocera-save-overlay 250 > /dev/null 2>&1
 
-# Créditos
-echo -e "${BLUE_BOLD}HBMAME e Batocera.PLUS por AlexxandreFS${RESET}"
-echo -e "${BLUE_BOLD}https://github.com/AlexxandreFS/Batocera.PLUS${RESET}"
+# Mensagem final
+echo -e "${GREEN_BOLD}HBMAME INSTALADO COM SUCESSO!${RESET}"
