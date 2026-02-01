@@ -57,12 +57,6 @@ if [ -f /tmp/roms-hbmame.squashfs ]; then
 fi
 
 
-[ -f /userdata/system/.dev/dependencias.zip ] && \
-sed -i '/<system>/,/<\/system>/{
-/<group>/!{
-/<\/theme>/a\        <group>fliperama</group>
-}
-}' /usr/share/emulationstation/es_systems_hbmame.cfg
 # Salvar overlay
 batocera-save-overlay 250 > /dev/null 2>&1
 
