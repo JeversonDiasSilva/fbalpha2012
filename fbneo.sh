@@ -28,14 +28,19 @@ sleep 2
 
 wget https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/FBNEO > /dev/null 2>&1
 unsquashfs -d /userdata/system/configs/retroarch/cores FBNEO > /dev/null 2>&1
+mv /userdata/system/configs/retroarch/cores/fbneo_old_libretro.info /usr/share/libretro/info
+sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /usr/share/emulationstation/es_systems.cfg
+sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /userdata/system/configs/emulationstation/es_systems.cfg
+
 rm FBNEO
 rm /usr/lib/libretro/fbneo_libretro.so
 ln -s /userdata/system/configs/retroarch/cores/fbneo_libretro.so /usr/lib/libretro/fbneo_libretro.so
+ln -s /userdata/system/configs/retroarch/cores/fbneo_old_libretro.so /usr/lib/libretro/fbneo_old_libretro.so
 
 echo -e "${AMARELO}Removendo arquivos temporários...${RESET}"
 rm -f FBNEO > /dev/null 2>&1 || { echo -e "${VERDE}Erro ao remover o arquivo temporário FBAH${RESET}"; exit 1; }
 sleep 2
-batocera-save-overlay > /dev/null 2>&1
+batocera-save-overlay 250 > /dev/null 2>&1
 
 
 
