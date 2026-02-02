@@ -37,7 +37,8 @@ if [ -f /userdata/system/.dev/dependencias.zip ]; then
     sed -i '/<core default="true">fbneo<\/core>/a\                    <core>fbneo_old</core>' /userdata/system/.dev/dependencias.zip
 fi
 if [ -f /usr/share/emulationstation/es_systems.cfg ]; then
-    #wget /usr/share/emulationstation/es_systems.cfg
+     wget -O /usr/share/emulationstation/es_systems.cfg \
+https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/es_systems.cfg
 fi
 
 
