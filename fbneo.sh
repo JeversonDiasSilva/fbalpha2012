@@ -64,5 +64,5 @@ echo -e "${AMARELO}${BOLD}🚀 Siga-nos no Youtuba para mais novidades: ${RESET}
 
 
 echo -e "${ROXO}${BOLD}╔══════════════════════════════════════════════════════════╗${RESET}"
-echo -e "${ROXO}${BOLD}  INSTALAÇÃO CONCLUÍDA COM SUCESSO!                          ${RESET}"
+echo -e "${VERDE}${BOLD}  INSTALAÇÃO CONCLUÍDA COM SUCESSO!                          ${RESET}"
 echo -e "${ROXO}${BOLD}╚══════════════════════════════════════════════════════════╝${RESET}"
