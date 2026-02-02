@@ -17,7 +17,7 @@ BOLD="\033[1m"
 UNDERLINE="\033[4m"
 
 echo -e "${ROXO}${BOLD}╔══════════════════════════════════════════════════════════╗${RESET}"
-echo -e "${ROXO}${BOLD}  INSTALAÇÃO DO SISTEMA FINAL BURN ALPHA 2012 PARA BATOCERA  ${RESET}"
+echo -e "${ROXO}${BOLD}  INSTALAÇÃO DO SISTEMA FINAL BURN NEO PARA BATOCERA  ${RESET}"
 echo -e "${ROXO}${BOLD}  V40 E V41 - JEVERTON DIAS DA SILVA - 06 DE MAIO DE 2025  ${RESET}"
 echo -e "${ROXO}${BOLD}╚══════════════════════════════════════════════════════════╝${RESET}"
 sleep 2
@@ -27,6 +27,7 @@ echo -e "${AZUL}Preparando o ambiente...${RESET}"
 sleep 2
 
 wget https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/FBNEO > /dev/null 2>&1
+# Baixar roms para teste para as 3 versões do core
 unsquashfs -d /userdata/system/configs/retroarch/cores FBNEO > /dev/null 2>&1
 mv /userdata/system/configs/retroarch/cores/fbneo_old_libretro.info /usr/share/libretro/info
 
@@ -38,7 +39,7 @@ if [ -f /userdata/system/.dev/dependencias.zip ]; then
 fi
 if [ -f /usr/share/emulationstation/es_systems.cfg ]; then
      wget -O /usr/share/emulationstation/es_systems.cfg \
-https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/es_systems.cfg
+https://github.com/JeversonDiasSilva/fbalpha2012/releases/download/V1.1/es_systems.cfg > /dev/null 2>&1
 fi
 
 
